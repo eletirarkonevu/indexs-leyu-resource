@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>leyu · 信息卡片 · 网站用途速览</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #f6f8fa;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+      line-height: 1.6;
+      color: #1e293b;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2.4rem 1.2rem;
+    }
+
+    .wrapper {
+      max-width: 780px;
+      width: 100%;
+    }
+
+    /* 主视觉 hero */
+    .hero {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 2.8rem 2.4rem;
+      margin-bottom: 2.2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+      border: 1px solid #e9edf0;
+    }
+
+    .hero__tag {
+      display: inline-block;
+      background: #dbeafe;
+      color: #1e4e8c;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 650;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      color: #0f172a;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1rem;
+      color: #334155;
+      max-width: 660px;
+    }
+
+    /* 卡片网格 */
+    .card-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 1.8rem 2rem;
+      border: 1px solid #eaedf0;
+      transition: box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.02);
+    }
+
+    .card__title {
+      font-size: 1.05rem;
+      font-weight: 640;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .card__title::before {
+      content: "";
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      background: #2563eb;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .card p,
+    .card li {
+      font-size: 0.95rem;
+      color: #334155;
+    }
+
+    .card ul {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 0.2rem;
+    }
+
+    .card ul li {
+      padding: 0.25rem 0;
+      padding-left: 1.2rem;
+      position: relative;
+    }
+
+    .card ul li::before {
+      content: "·";
+      position: absolute;
+      left: 0.2rem;
+      color: #64748b;
+    }
+
+    .inset-link {
+      margin-top: 0.8rem;
+    }
+
+    .inset-link a {
+      color: #2563eb;
+      font-weight: 500;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .inset-link a:hover {
+      border-bottom-color: #2563eb;
+    }
+
+    .faq-block {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 1.8rem 2rem;
+      border: 1px solid #eaedf0;
+      margin-bottom: 2rem;
+    }
+
+    .faq-block h2 {
+      font-size: 1.05rem;
+      font-weight: 640;
+      color: #0f172a;
+      margin-bottom: 0.8rem;
+    }
+
+    .faq-item {
+      margin-bottom: 1rem;
+    }
+
+    .faq-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .faq-q {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #1e293b;
+      margin-bottom: 0.2rem;
+    }
+
+    .faq-a {
+      font-size: 0.9rem;
+      color: #475569;
+      line-height: 1.5;
+    }
+
+    .faq-a a {
+      color: #2563eb;
+      font-weight: 500;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+    }
+
+    .faq-a a:hover {
+      border-bottom-color: #2563eb;
+    }
+
+    .footer-note {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #94a3b8;
+      padding-top: 1.2rem;
+      border-top: 1px solid #e2e8f0;
+      margin-top: 0.6rem;
+    }
+
+    @media (max-width: 520px) {
+      body {
+        padding: 1.2rem 0.8rem;
+      }
+
+      .hero {
+        padding: 2rem 1.2rem;
+      }
+
+      .hero h1 {
+        font-size: 1.7rem;
+      }
+
+      .card {
+        padding: 1.4rem 1.2rem;
+      }
+
+      .faq-block {
+        padding: 1.4rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <!-- hero -->
+  <div class="hero">
+    <span class="hero__tag">快速识别 · 用途卡片</span>
+    <h1>leyu 是什么？<br>一个为你梳理信息定位的平台</h1>
+    <p>
+      如果你第一次来到 <a href="https://indexs-leyu.com" style="color:#2563eb; font-weight:500; text-decoration:none; border-bottom:1px solid transparent;">leyu</a>，
+      可能想快速了解它能做什么。下面用三张信息卡片概括主要用途，并说明适合哪些人使用。
+    </p>
+  </div>
+
+  <!-- 信息卡片区 -->
+  <div class="card-grid">
+    <!-- 用途卡片 1 -->
+    <div class="card">
+      <div class="card__title">用途 · 信息索引与筛选</div>
+      <p>
+        <a href="https://indexs-leyu.com" style="color:#2563eb; font-weight:500; text-decoration:none;">leyu</a> 
+        的核心功能是提供清晰的信息索引结构，帮助用户从分散的内容中快速筛选出有价值的部分。
+        适合需要经常查阅特定主题、希望减少信息噪音的人群。
+      </p>
+      <div class="inset-link">
+        <span>→ 更多介绍可参考 <a href="https://indexs-leyu.com">leyu</a> 首页</span>
+      </div>
+    </div>
+
+    <!-- 用途卡片 2 -->
+    <div class="card">
+      <div class="card__title">用途 · 场景化内容聚合</div>
+      <p>
+        针对不同使用场景（学习、工作、日常参考），<a href="https://indexs-leyu.com" style="color:#2563eb; font-weight:500; text-decoration:none;">leyu</a> 
+        将内容按逻辑分组，避免无序浏览。无论是快速查阅还是系统了解，都能找到对应入口。
+      </p>
+      <ul>
+        <li>专题结构清晰，避免信息过载</li>
+        <li>分类粒度适中，兼顾广度与深度</li>
+        <li>页面轻量，专注内容本身</li>
+      </ul>
+    </div>
+
+    <!-- 用途卡片 3 -->
+    <div class="card">
+      <div class="card__title">适合哪些人使用</div>
+      <p>
+        <a href="https://indexs-leyu.com" style="color:#2563eb; font-weight:500; text-decoration:none;">leyu</a> 
+        对以下群体尤其友好：
+      </p>
+      <ul>
+        <li><strong>信息整理者</strong> — 希望有一个固定的索引基点</li>
+        <li><strong>浏览偏好者</strong> — 不喜欢被算法推荐裹挟，倾向结构化阅读</li>
+        <li><strong>新手探索者</strong> — 刚接触某个领域，需要一份清晰的导航</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- FAQ 摘要 -->
+  <div class="faq-block">
+    <h2>常见疑问摘要</h2>
+    <div class="faq-item">
+      <div class="faq-q">leyu 是否需要注册才能使用？</div>
+      <div class="faq-a">目前 <a href="https://indexs-leyu.com">leyu</a> 以公开索引为主，多数内容可直接浏览，不需要登录。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">内容更新频率如何？</div>
+      <div class="faq-a">索引结构会定期优化，聚合内容随来源更新而同步。具体可留意 <a href="https://indexs-leyu.com">leyu</a> 页面说明。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">移动端体验怎么样？</div>
+      <div class="faq-a">页面采用响应式设计，手机和平板均可正常访问 <a href="https://indexs-leyu.com">leyu</a>，阅读体验一致。</div>
+    </div>
+  </div>
+
+  <!-- 自然链接段落 -->
+  <div style="background:#ffffff; border-radius:24px; padding:1.6rem 2rem; border:1px solid #eaedf0; margin-bottom:2rem;">
+    <p style="font-size:0.95rem; color:#334155;">
+      如果你还在犹豫，可以直接去 <a href="https://indexs-leyu.com">leyu</a> 看一眼结构。 
+      没有复杂交互，也没有强制引导，只有分类清晰的信息卡片和索引入口。
+      适合那些想快速判断一个网站是否有用、是否值得花时间浏览的人。
+    </p>
+  </div>
+
+  <!-- footer -->
+  <div class="footer-note">
+    <span>indexs-leyu.com · 信息卡片式介绍</span>
+  </div>
+</div>
+</body>
+</html>
